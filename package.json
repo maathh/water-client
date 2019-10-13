@@ -1,36 +1,28 @@
 {
-  "name": "client",
+  "name": "water-client",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.4.2",
-    "@material-ui/icons": "^4.4.1",
-    "firebase": "^6.6.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.2",
-    "typeface-roboto": "^0.0.75"
-  },
+  "repository": "https://github.com/maathh/water-client",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:app": "next build src/app",
+    "build:functions": "cpx \"src/functions/**/*.*\" dist/functions",
+    "build:public": "cpx \"src/app/static/**/*.*\" dist/public/static",
+    "clean": "rimraf dist",
+    "copy:deps": "cpx \"*{package.json,package-lock.json}\" dist/functions",
+    "dev": "next src/app"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "firebase-admin": "7.2.0",
+    "firebase-functions": "2.2.1",
+    "next": "8.1.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": "8"
+  },
+  "devDependencies": {
+    "cpx": "1.5.0",
+    "firebase-tools": "6.10.0",
+    "rimraf": "2.7.1"
   }
 }
