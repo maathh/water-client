@@ -124,7 +124,7 @@ Root.propTypes = {
   width: PropTypes.string.isRequired,
   // general
   className: PropTypes.string,
-  component: PropTypes.elementType,
+  // component: PropTypes.elementType,
   config: PropTypes.shape({
     clipped: PropTypes.oneOfType([
       PropTypes.bool,

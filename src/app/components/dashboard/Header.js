@@ -57,7 +57,7 @@ function Content(props) {
                 </Grid>
                 <Grid item>
                     <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                        <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                        <Avatar src="" alt="My Avatar" />
                     </IconButton>
                 </Grid>
             </Grid>

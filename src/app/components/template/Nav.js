@@ -1,11 +1,13 @@
 import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Grow from '@material-ui/core/Grow';
 import { LayoutContext } from './Root';
+
+let theme_ = createMuiTheme();
 
 const styles = ({
   breakpoints,
@@ -42,7 +44,7 @@ const styles = ({
   },
   closeButton: {
     position: 'absolute',
-    bottom:  spacing.unit * 2,
+    bottom:  theme_.spacing(2),
     zIndex: zIndex.modal + 1,
     background: palette.common.white,
     boxShadow: shadows[2],
@@ -126,7 +128,7 @@ const Nav = ({
 Nav.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.shape({}).isRequired,
-  component: PropTypes.elementType,
+  // component: PropTypes.elementType,
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
   header: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   collapsedIcon: PropTypes.shape({
