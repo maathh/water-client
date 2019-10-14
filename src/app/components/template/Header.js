@@ -105,7 +105,7 @@ const Header = ({
 Header.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.shape({}).isRequired,
-  component: PropTypes.elementType,
+  // component: PropTypes.elementType,
   style: PropTypes.shape({}),
   position: PropTypes.string,
   theme: PropTypes.shape({}).isRequired,

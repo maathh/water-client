@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import { LayoutContext } from './Root';
+
+let theme_ = createMuiTheme();
 
 const styles = ({ breakpoints, palette, spacing, transitions }) => ({
   root: {
     borderTop: '1px solid',
     borderColor: palette.grey[200],
-    padding:  spacing.unit * 2,
+    padding:  theme_.spacing(2),
     [breakpoints.up('sm')]: {
-      padding: spacing.unit * 3,
+      padding: theme_.spacing(3),
     },
     transition: transitions.create(['margin'], {
       easing: transitions.easing.sharp,
@@ -68,7 +70,7 @@ const Footer = ({
 Footer.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.shape({}).isRequired,
-  component: PropTypes.elementType,
+  // component: PropTypes.elementType,
   style: PropTypes.shape({}),
 };
 Footer.defaultProps = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/dashboard/Dashboard';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 let theme = createMuiTheme({
   palette: {
