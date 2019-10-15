@@ -4,7 +4,7 @@ import App from './pages/HomeEmp';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import Dashboard from './pages/index';
-import * as serviceWorker from './serviceWorker';
+import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
@@ -18,9 +18,4 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-
+registerServiceWorker();
