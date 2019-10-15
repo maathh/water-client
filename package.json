@@ -6,12 +6,12 @@
     "url": "git+https://github.com/maathh/water-client.git"
   },
   "scripts": {
+    "clean": "rimraf dist",
     "build:app": "next build src/app",
     "build:functions": "cpx \"src/functions/**/*.*\" dist/functions",
+    "copy:deps": "cpx \"*{package.json,package-lock.json}\" dist/functions",
     "build:public": "cpx \"src/app/static/**/*.*\" dist/public/static",
     "deploy": "npx firebase deploy",
-    "clean": "rimraf dist",
-    "copy:deps": "cpx \"*{package.json,package-lock.json}\" dist/functions",
     "dev": "next src/app"
   },
   "dependencies": {
