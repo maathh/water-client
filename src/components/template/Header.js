@@ -15,7 +15,8 @@ const styles = ({ transitions }) => ({
   },
   menuButton: {
     marginLeft: -8,
-    marginRight: 8
+    marginRight: 8,
+    color: "#ffff"
   }
 });
 

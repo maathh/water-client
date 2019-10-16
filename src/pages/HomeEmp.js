@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../template/Layout';
+import Layout from '../components/template/Layout';
 import ImageBackground from '../images/apagar.png';
 import ThemeCorporation from '../api/themeCorporation';
 // import Button from '@material-ui/core/Button';

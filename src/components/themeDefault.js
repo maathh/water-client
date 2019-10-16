@@ -1,27 +1,25 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import Blue from '@material-ui/core/colors/blue';
-import Grey from '@material-ui/core/colors/grey';
 
 let theme = createMuiTheme({
   palette: {
-    // primary: {
-    //   light: '#63ccff',
-    //   main: '#009be5',
-    //   dark: '#006db3'
-    // }
     primary: {
-      main: Blue[800]
+      main: "#2E2370"
     },
     secondary: {
-      main: '#262626'
+      main: '#5888D6'
+    },
+    third: {
+      light: '#333a48',
+      dark: '#121c2e',
+      main: '#19273d'
     }
   },
   typography: {
     h5: {
       fontWeight: 500,
       fontSize: 26,
-      letterSpacing: 0.5
-    }
+      letterSpacing: 0.5,
+    },
   },
   shape: {
     borderRadius: 8
@@ -43,8 +41,8 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: theme.palette.secondary.main
-      }
+        backgroundColor: theme.palette.third.main,
+      },
     },
     MuiButton: {
       label: {

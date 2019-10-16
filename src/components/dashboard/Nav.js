@@ -39,34 +39,34 @@ const styles = theme => ({
   item: {
     paddingTop: 1,
     paddingBottom: 1,
-    color: theme.palette.common.white,
+    color: 'rgba(255, 255, 255, 0.7)',
     '&:hover,&:focus': {
-      backgroundColor: '#4e4e4e'
-    }
+      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    },
   },
   itemCategory: {
-    backgroundColor: '#000000',
+    backgroundColor: theme.palette.third.dark,
     boxShadow: '0 -1px 0 #404854 inset',
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
+    paddingBottom: theme.spacing(2),
   },
   firebase: {
     fontSize: 24,
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
   },
   itemActiveItem: {
-    color: '#4fc3f7'
+    color: '#4fc3f7',
   },
   itemPrimary: {
-    fontSize: 'inherit'
+    fontSize: 'inherit',
   },
   itemIcon: {
     minWidth: 'auto',
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   divider: {
-    marginTop: theme.spacing(2)
-  }
+    marginTop: theme.spacing(2),
+  },
 });
 
 function Navigator(props) {
