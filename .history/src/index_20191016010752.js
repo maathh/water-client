@@ -8,14 +8,15 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" exact={true} component={Index} />
-      <Route path="/cadastro" component={Cadastro} />
-      <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={Dashboard} />
-    </Switch>
-  </BrowserRouter>,
+  <Dashboard></Dashboard>,
+  // <BrowserRouter>
+  //   <Switch>
+  //     <Route path="/" exact={true} component={Index} />
+  //     <Route path="/cadastro" component={Cadastro} />
+  //     <Route path="/login" component={Login} />
+  //     <Route path="/dashboard" component={Dashboard} />
+  //   </Switch>
+  // </BrowserRouter>,
   document.getElementById('root')
 );
 
