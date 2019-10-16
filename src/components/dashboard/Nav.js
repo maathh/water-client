@@ -15,8 +15,8 @@ const categories = [
   {
     id: 'Gerencimento',
     children: [
-      { id: 'Pontos Acumulados', icon: <DnsRoundedIcon />, active: true },
-      { id: 'Lojas Participantes', icon: <BusinessIcon /> }
+      { id: 'Monitoramento', icon: <DnsRoundedIcon />, active: true },
+      { id: 'Empresas', icon: <BusinessIcon /> }
     ]
   }
   // {
@@ -77,7 +77,7 @@ function Navigator(props) {
       <ListItem
         className={clsx(classes.firebase, classes.item, classes.itemCategory)}
       >
-        Infopack
+        Waterbase
       </ListItem>
       <ListItem className={clsx(classes.item, classes.itemCategory)}>
         <ListItemIcon className={classes.itemIcon}>

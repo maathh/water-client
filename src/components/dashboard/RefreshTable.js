@@ -10,22 +10,12 @@ class RefreshData extends React.Component {
   render() {
     return (
       <MaterialTable
-        title="Pontos Acumulados"
+        title="Locais de Monitoramento"
         tableRef={this.tableRef}
         columns={[
-          {
-            title: 'Empresa',
-            field: 'Empresa',
-            render: rowData => (
-              <img
-                alt="Empresa"
-                style={{ height: 36, borderRadius: '50%' }}
-                src={rowData.avatar}
-              />
-            )
-          },
-          { title: 'Nome', field: 'Nome' },
-          { title: 'Qtde. pontos', field: 'pontos' },
+          { title: 'Descrição',field: 'descricao',},
+          { title: 'Região', field: 'regiao' },
+          { title: 'Estado', field: 'estado' },
           { title: 'Ações', field: 'actions' }
         ]}
         data={query =>
