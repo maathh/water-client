@@ -3,14 +3,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Root, Header, Nav, Content, Footer } from './';
+import { Root, Header, Nav, Content, Footer } from '../template';
+import NavContent from './Nav';
+import ContentDashboard from './Content';
+import HeaderContent from './Header';
 
 const config = {
   navAnchor: 'left',
   navVariant: {
     xs: 'temporary',
-    sm: 'temporary',
-    md: 'persistent'
+    sm: 'permanent',
+    md: 'permanent'
   },
   navWidth: {
     xs: 240,
@@ -38,29 +41,29 @@ const config = {
     md: 'sticky'
   },
   squeezed: {
-    xs: true,
-    sm: true,
+    xs: false,
+    sm: false,
     md: true
   },
   footerShrink: {
     xs: false,
     sm: false,
-    md: false
+    md: true
   }
 };
 
-const Layout = () => {
+const App = props => {
   return (
     <Root config={config} style={{ minHeight: '100vh' }}>
       <CssBaseline />
-
       <Header
         menuIcon={{
           inactive: <MenuIcon />,
           active: <ChevronLeftIcon />
         }}
-      ></Header>
-
+      >
+        <HeaderContent />
+      </Header>
       <Nav
         collapsedIcon={{
           inactive: <ChevronLeftIcon />,
@@ -71,13 +74,20 @@ const Layout = () => {
           // change null to some react element
           ctx => null
         }
-      ></Nav>
+      >
+        <NavContent />
+      </Nav>
 
-      <Content></Content>
+      <Content>
+        <br />
+        <ContentDashboard />
+      </Content>
 
-      <Footer></Footer>
+      <Footer>
+        {/* footer goes here */}
+        <div></div>
+      </Footer>
     </Root>
   );
 };
-
-export default Layout;
+export default App;

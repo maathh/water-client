@@ -13,7 +13,7 @@ ReactDOM.render(
       <Route path="/" exact={true} component={Index} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/login" component={Login} />
-      <Route path="/dashboard/:nav/:tab" component={Dashboard} />
+      <Route path="/dashboard" component={Dashboard} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

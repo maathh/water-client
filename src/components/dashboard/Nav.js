@@ -10,8 +10,23 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import BusinessIcon from '@material-ui/icons/Business';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import { Link as RouterLink } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+
+const categories = [
+  {
+    id: 'Gerencimento',
+    children: [
+      { id: 'Monitoramento', icon: <DnsRoundedIcon />, active: true },
+      { id: 'Empresas', icon: <BusinessIcon /> }
+    ]
+  }
+  // {
+  //   id: 'Qualidade',
+  //   children: [
+  //     { id: 'Análise', icon: <SettingsIcon /> },
+  //     { id: 'Performance', icon: <TimerIcon /> },
+  //   ],
+  // },
+];
 
 const styles = theme => ({
   categoryHeader: {
@@ -19,8 +34,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing(2)
   },
   categoryHeaderPrimary: {
-    color: theme.palette.common.white,
-    fontSize: 18,
+    color: theme.palette.common.white
   },
   item: {
     paddingTop: 1,
@@ -44,7 +58,7 @@ const styles = theme => ({
     color: '#4fc3f7',
   },
   itemPrimary: {
-    fontSize: 16,
+    fontSize: 'inherit',
   },
   itemIcon: {
     minWidth: 'auto',
@@ -55,36 +69,17 @@ const styles = theme => ({
   },
 });
 
-const Link = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-
 function Navigator(props) {
   const { classes } = props;
-  const { nav } = useParams();
-  const categories = [
-    {
-      id: 'Gerenciamento',
-      children: [
-        { id: 'Monitoramento', icon: <DnsRoundedIcon />, to: "/dashboard/monitoramento/locais", active: (nav === 'monitoramento' ? true : false) },
-        { id: 'Empresas', icon: <BusinessIcon />, to: "/dashboard/empresas/geral", active: (nav === 'empresas' ? true : false) }
-      ]
-    }
-    // {
-    //   id: 'Qualidade',
-    //   children: [
-    //     { id: 'Análise', icon: <SettingsIcon /> },
-    //     { id: 'Performance', icon: <TimerIcon /> },
-    //   ],
-    // },
-  ];
 
   return (
     <List disablePadding>
-      <ListItem to="/" component={Link}
+      <ListItem
         className={clsx(classes.firebase, classes.item, classes.itemCategory)}
       >
         Waterbase
       </ListItem>
-      <ListItem to="/" component={Link} button className={clsx(classes.item, classes.itemCategory)}>
+      <ListItem className={clsx(classes.item, classes.itemCategory)}>
         <ListItemIcon className={classes.itemIcon}>
           <HomeIcon />
         </ListItemIcon>
@@ -107,13 +102,11 @@ function Navigator(props) {
               {id}
             </ListItemText>
           </ListItem>
-          {children.map(({ id: childId, icon, to, active }) => (
+          {children.map(({ id: childId, icon, active }) => (
             <ListItem
               key={childId}
               button
               className={clsx(classes.item, active && classes.itemActiveItem)}
-              component={Link}
-              to={to}
             >
               <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
               <ListItemText
