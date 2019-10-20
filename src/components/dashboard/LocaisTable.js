@@ -41,13 +41,6 @@ class RefreshData extends React.Component {
         ]}
         data={this.state.locais}
         actions={[
-          {
-            icon: 'refresh',
-            tooltip: 'Refresh Data',
-            isFreeAction: true,
-            onClick: () =>
-              this.tableRef.current && this.tableRef.current.onQueryChange()
-          },
           rowData => ({
             icon: 'info',
             tooltip: 'Delete User',
