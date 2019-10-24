@@ -39,13 +39,5 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maathh/water-client.git"
-  },
-  "bugs": {
-    "url": "https://github.com/maathh/water-client/issues"
-  },
-  "homepage": "https://smart-water-168ca.firebaseapp.com/dashboard"
+  "license": "ISC"
 }
