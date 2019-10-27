@@ -13,6 +13,7 @@ ReactDOM.render(
       <Route path="/" exact={true} component={Index} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/login" component={Login} />
+      <Route path="/dashboard/:nav/:tab/:idbase" component={Dashboard} />
       <Route path="/dashboard/:nav/:tab" component={Dashboard} />
     </Switch>
   </BrowserRouter>,

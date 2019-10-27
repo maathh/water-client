@@ -53,7 +53,7 @@ const NavigationOptions = (nav) => {
     case 'monitoramento':
       return <MonitoramentoLocais></MonitoramentoLocais>;
     case 'empresas':
-      return null;
+      return <p style={{textAlign:"center"}}>Em desenvolvimento</p>;
     default:
       return <MonitoramentoLocais></MonitoramentoLocais>;
   }

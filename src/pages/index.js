@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '../components/template/Layout';
 import ThemeCorporation from '../api/themeCorporation';
+import Cadastro from './Cadastro';
+import Login from './Login';
+
 
 const config = {
   navAnchor: 'left',
@@ -47,9 +50,20 @@ const config = {
 };
 
 export default function homePage() {
+  let user = JSON.parse(sessionStorage.getItem('user'));
+  if (!user || !user.displayName) {
+    user = {
+      email: "",
+      photoURL: "",
+      displayName: "",
+      token: "",
+    }
+    sessionStorage.setItem('user', JSON.stringify(user));
+  }
   return (
     <ThemeCorporation>
       <Layout config={config}>
+        <Login />
       </Layout>
     </ThemeCorporation>
   );
