@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import BusinessIcon from '@material-ui/icons/Business';
+// import BusinessIcon from '@material-ui/icons/Business';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
 import { Link as RouterLink } from 'react-router-dom';
 import { useParams } from "react-router-dom";
@@ -65,7 +65,7 @@ function Navigator(props) {
       id: 'Gerenciamento',
       children: [
         { id: 'Monitoramento', icon: <DnsRoundedIcon />, to: "/dashboard/monitoramento/locais", active: (nav === 'monitoramento' ? true : false) },
-        { id: 'Empresas', icon: <BusinessIcon />, to: "/dashboard/empresas/geral", active: (nav === 'empresas' ? true : false) }
+        // { id: 'Empresas', icon: <BusinessIcon />, to: "/dashboard/empresas/geral", active: (nav === 'empresas' ? true : false) }
       ]
     }
     // {

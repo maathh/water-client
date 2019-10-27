@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import LocaisTable from './LocaisTable';
+import DetalhesTable from './DetalhesTable';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Tab from '@material-ui/core/Tab';
@@ -39,18 +40,18 @@ const Link = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...pro
 
 function Content(props) {
   const { classes } = props;
-  const { tab } = useParams();
+  const { tab, idbase } = useParams();
   const [numTab, setNumTab] = useState(0);
 
   switch (tab) {
     case 'detalhes':
-      if (numTab !== 2) {
-        setNumTab(2);
+      if (numTab !== 1) {
+        setNumTab(1);
       }
       break;
     case 'locais':
-      if (numTab !== 1) {
-        setNumTab(1);
+      if (numTab !== 0) {
+        setNumTab(0);
       }
       break;
     case 'geral':
@@ -63,13 +64,14 @@ function Content(props) {
 
   const NavigationOptions = (numTab) => {
     switch (numTab) {
+      // case 0:
+      //   return <LocaisTable />;
       case 1:
-        return <LocaisTable />;
-      case 2:
-        return null;
+        return <DetalhesTable idBase={idbase}/>;
       case 0:
       default:
-        return null;
+          return <LocaisTable />;
+        // return <p style={{textAlign:"center"}}>Em desenvolvimento</p>;
     }
   }
 
@@ -100,9 +102,9 @@ function Content(props) {
         elevation={0}
       >
         <Tabs value={numTab} textColor="inherit">
-          <Tab to="/dashboard/monitoramento/geral" component={Link} textColor="inherit" label="Geral" />
+          {/* <Tab to="/dashboard/monitoramento/geral" component={Link} textColor="inherit" label="Geral" /> */}
           <Tab to="/dashboard/monitoramento/locais" component={Link} textColor="inherit" label="Locais" />
-          <Tab to="/dashboard/monitoramento/detalhes" component={Link} textColor="inherit" label="Detalhes" />
+          <Tab disabled to="/dashboard/monitoramento/detalhes" component={Link} textColor="inherit" label="Detalhes" />
         </Tabs>
       </AppBar>
 

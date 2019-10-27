@@ -15,6 +15,8 @@ var firebaseConfig = {
     measurementId: "G-783B9D19EX"
 };
 firebase.initializeApp(firebaseConfig);
+firebase.auth().useDeviceLanguage();
 
 const db = firebase.firestore();
-export default db;
+
+export {firebase, db};

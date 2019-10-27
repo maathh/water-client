@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '../components/template/Layout';
 import ThemeCorporation from '../api/themeCorporation';
+import Cadastro from './Cadastro';
+import Login from './Login';
+
 
 const config = {
   navAnchor: 'left',
@@ -50,6 +53,7 @@ export default function homePage() {
   return (
     <ThemeCorporation>
       <Layout config={config}>
+        <Login />
       </Layout>
     </ThemeCorporation>
   );

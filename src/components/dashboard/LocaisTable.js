@@ -1,13 +1,20 @@
 import MaterialTable from 'material-table';
 import React from 'react';
-import db from '../../db'
+import {db} from '../../firebase'
+import { Redirect } from 'react-router'
 
 class RefreshData extends React.Component {
   constructor(props) {
     super(props);
     this.tableRef = React.createRef();
-    this.state = { locais: [] };
+    this.state = { locais: [], redirect: false, idRow: '' };
   }
+
+  redirect = () => {
+    this.setState({
+      redirect: true
+    })
+   }
 
   componentDidMount() {
 
@@ -29,6 +36,10 @@ class RefreshData extends React.Component {
   }
 
   render() {
+    if(this.state.redirect) {
+      const toDesc = "/dashboard/monitoramento/detalhes/"+this.state.idRow;
+      return <Redirect to={toDesc} />
+    }else{
     return (
       <MaterialTable
         title="Locais"
@@ -51,8 +62,8 @@ class RefreshData extends React.Component {
           rowData => ({
             icon: 'info',
             tooltip: 'Detalhes',
-            onClick: (event, rowData) => console.log("You want to see " + rowData.id),
-            disabled: rowData.birthYear < 2000
+            onClick: (event, rowData) => this.setState({redirect: true, idRow: rowData.id}),
+            disabled: rowData.birthYear < 2000,
           })
         ]}
         options={{
@@ -60,6 +71,7 @@ class RefreshData extends React.Component {
         }}
       />
     );
+  }
   }
 }
 
