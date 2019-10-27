@@ -56,7 +56,6 @@ function useWindowSize() {
 }
 
 const responseGoogle = (response) => {
-  console.log(response);
 }
 
 function Cadastro() {

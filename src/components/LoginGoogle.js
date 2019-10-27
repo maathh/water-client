@@ -1,52 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { firebase } from "../firebase"
+import { Redirect } from 'react-router'
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        alert("entrou")
-        console.log(user);
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        // ...
     } else {
-        alert("Saiu");
-        // User is signed out.
-        // ...
     }
 });
-
-function clickGoogle() {
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-    }).catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var credential = error.credential;
-    });
-};
 
 function logoutGoogle() {
     firebase.auth().signOut().then(function () {
         alert("Saiu com sucesso!");
     }).catch(function (error) {
-        // An error happened.
     });
 }
 
 export default function LoginGoogle() {
+    const [redirect, setRedirect] = useState(false);
+
+    const clickGoogle = () => {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            var data = result.user;
+            const user = {
+                email:data.email,
+                photoURL:data.photoURL,
+                displayName:data.displayName,
+                token:result.credential.accessToken,
+            }
+            
+            sessionStorage.setItem('user', JSON.stringify(user));
+            setRedirect(true);
+        }).catch(function (error) {
+        });
+    };
 
     return (
         <React.Fragment>
+            {redirect ? <Redirect to="/dashboard/monitoramento/locais" /> : null}
             <Button
                 onClick={clickGoogle}
                 fullWidth
@@ -72,7 +65,7 @@ export default function LoginGoogle() {
                 </div>
                 <span style={{ fontWeight: 500 }}>Login com o Google</span>
             </Button>
-            <Button
+            {/* <Button
                 style={{ marginTop: "5px" }}
                 onClick={logoutGoogle}
                 fullWidth
@@ -97,7 +90,7 @@ export default function LoginGoogle() {
                     </svg>
                 </div>
                 <span style={{ fontWeight: 500 }}>Log Out</span>
-            </Button>
+            </Button> */}
         </React.Fragment>
     )
 }

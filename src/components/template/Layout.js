@@ -39,7 +39,7 @@ const styles = theme => ({
 
 const App = props => {
   const { classes } = props;
-
+  const user = JSON.parse(sessionStorage.getItem('user'));
   return (
     <Root config={props.config} style={{ minHeight: '100vh' }}>
       <CssBaseline />
@@ -67,7 +67,7 @@ const App = props => {
           </Grid>
           <Grid item>
             <IconButton color="inherit" className={classes.iconButtonAvatar}>
-              <Avatar src="" alt="My Avatar" />
+              <Avatar src={user.photoURL} alt="My Avatar" />
             </IconButton>
           </Grid>
         </Grid>

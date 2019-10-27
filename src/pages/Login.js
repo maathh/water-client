@@ -59,12 +59,8 @@ export default function SignIn() {
   const [open, setOpen] = useState(true);
   const isXs = useWindowSize();
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
-    <Dialog fullScreen={isXs} open={open} handlerClose={handleClose}>
+    <Dialog fullScreen={isXs} open={open}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
